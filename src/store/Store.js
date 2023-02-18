@@ -1,6 +1,4 @@
-import { createStore, combineReducers } from "redux";
-import { persistStore, persistReducer } from "redux-persist";
-import localforage from "localforage";
+import { configureStore } from "@reduxjs/toolkit";
 
 const myObjectInitialState = {
   myObject: null,
@@ -44,20 +42,9 @@ function anotherObjectReducer(state = anotherObjectInitialState, action) {
 }
 
 
-const rootReducer = combineReducers({
-  object1: myObjectReducer,
-  object2: anotherObjectReducer,
+export const store =  configureStore({
+  reducer: {
+    object1: myObjectReducer,
+    object2: anotherObjectReducer,
+  }
 });
-
-const persistConfig = {
-  key: "root",
-  storage: localforage,
-};
-
-const persistedReducer = persistReducer(persistConfig, rootReducer);
-
-
-let Store = createStore(persistedReducer);
-let Persistor = persistStore(Store);
-
-export { Store, Persistor };
