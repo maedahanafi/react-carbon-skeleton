@@ -6,20 +6,17 @@ import {
 import "./index.scss";
 import { Provider, useSelector, useDispatch } from "react-redux";
 import { Store } from "../../store/Store";
+import { addAnotherObject, selectAnotherObjectArr, } from "../../store/anotherObjectReducer";
 
 function Homepage() {
 	//Enable user interaction with anotherObject
   const dispatch = useDispatch();
   const onClickButton = ()=>{
-  	const payload = {anotherObject:"Another object!"};
-    dispatch({
-      type: "ADD_ANOTHER_OBJECT",
-      payload: payload,
-    });
+    dispatch(addAnotherObject({anotherObject:"Another object!"}));
   };
 
   // Retrieve anotherObject from Store
-  const anotherObjectArr = useSelector((state) => {return state.object2.anotherObjectArr});
+  const anotherObjectArr = useSelector((state) => selectAnotherObjectArr(state));
 
 	return (
 	  <Content>

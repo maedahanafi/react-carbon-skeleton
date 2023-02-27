@@ -9,7 +9,7 @@ import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import UploadsPage from "./pages/UploadsPage/UploadsPage";
 import Navigation from "./components/navigation/Navigation";
 import { Provider, useSelector } from "react-redux";
-import { Store, Persistor } from "./store/Store";
+import { store } from "./store/Store";
 import { PersistGate } from "redux-persist/integration/react";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 
@@ -17,8 +17,7 @@ import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 function App() {
   return (
   <BrowserRouter>
-    <Provider store={Store}>
-      <PersistGate loading={null} persistor={Persistor}>
+    <Provider store={store}>
         <Content>
           <Header aria-label="Header for Our Skeleton App">
           <HeaderName href="https://react.carbondesignsystem.com/" prefix="Carbon Design System">
@@ -37,7 +36,6 @@ function App() {
             
           </Routes>
         </Content>  
-      </PersistGate>
     </Provider>
   </BrowserRouter>);
   
