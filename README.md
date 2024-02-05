@@ -1,20 +1,36 @@
-# React Carbon Skeleton
+# Carbon Tutorial for NextJS 13
 
-A repo that you can clone to quickly get started with your own react and carbon project.
+This tutorial will guide you in creating a NextJS app with the [Carbon Design System](https://www.carbondesignsystem.com/). We’ll teach you the ins and outs of using Carbon React components, while introducing web development best practices along the way.
 
-Read the tutorial here: 
+Get started by visiting the [tutorial instructions](https://carbondesignsystem.com/developing/next-tutorial/overview/).
 
-## To run
+## Create NextJS 13 app
 
-Run the following in terminal: 
+```bash
+yarn create next-app
+
+✔ What is your project named? … next-base
+✔ Would you like to use TypeScript? … *No / Yes
+✔ Would you like to use ESLint? … No / *Yes
+✔ Would you like to use Tailwind CSS? … *No / Yes
+✔ Would you like to use `src/` directory? … No / *Yes
+✔ Would you like to use App Router? (recommended) … No / *Yes
+✔ Would you like to customize the default import alias? … *No / Yes
+
+cd carbon-tutorial-nextjs
+yarn dev
+```
+
+Configure paths in `jsconfig.json`
 
 ```
-npm install
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@/components/*": ["components/*"],
+      "@/app/*": ["app/*"]
+   }
+  }
+}
 ```
-
-And then run the application:
-```
-npm start
-```
-
-And navigate over to localhost:3000 in the browser.
